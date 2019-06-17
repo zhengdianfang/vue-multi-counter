@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <button @click="increment()">+</button>
+    <button @click="increase()">+</button>
     <span class="count_diplay">{{ count }}</span>
-    <button @click="descrement()">-</button>
+    <button @click="decrease()">-</button>
   </div>
 </template>
 
@@ -15,11 +15,13 @@ export default {
     }
   },
   methods: {
-    increment() {
+    increase() {
       this.count += 1;
+      this.$emit('updateCount', 1);
     },
-    descrement() {
+    decrease() {
       this.count -= 1;
+      this.$emit('updateCount', -1);
     }
   }
 }

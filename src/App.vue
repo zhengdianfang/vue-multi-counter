@@ -1,16 +1,31 @@
 <template>
   <div id="app">
-    <Counter />
+    <input v-model.number="counterNum" type="number" min=0 />
+    <CounterGroup :counterNum="counterNum" v-on:updateSum="updateSum" />
+    <CounterSum :sum="sum" />
   </div>
 </template>
 
 <script>
-import Counter from './components/Counter';
+import CounterGroup from './components/CounterGroup';
+import CounterSum from './components/CounterSum';
 
 export default {
   name: 'app',
+  data() {
+    return {
+      counterNum: 0,
+      sum: 0,
+    }
+  },
+  methods: {
+    updateSum(data) {
+      this.sum = data;
+    }
+  },
   components: {
-    Counter 
+    CounterGroup,
+    CounterSum,
   }
 }
 </script>
