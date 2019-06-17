@@ -1,17 +1,20 @@
 <template>
     <div class="sum_container">
-        <span>The sum of all counters is {{ sum }}</span> 
+        <span>The sum of all Counters is {{ sum }}</span> 
     </div>
 </template>
 
 <script>
+
 export default {
-   props: {
-       sum: {
-           type: Number,
-           default: 0,
-       },
-   } 
+    created() {
+        console.log(this);
+    },
+    computed: {
+        sum() {
+            return this.$store.state.sum;
+        } 
+    }
 }
 </script>
 <style scoped>

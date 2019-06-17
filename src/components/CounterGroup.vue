@@ -3,7 +3,6 @@
         <Counter 
             v-for="index in formatCounterNum"
             :key="index" 
-            v-on:updateCount="updateCount"
          />    
     </div>
 </template>
@@ -23,12 +22,6 @@ export default {
     components: {
         Counter,
     },
-    methods: {
-        updateCount(num) {
-            sum += num;
-            this.$emit("updateSum", sum);
-        }
-    }    
 }
 </script>
 
